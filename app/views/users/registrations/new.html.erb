@@ -1,40 +1,48 @@
-<h2>Sign up</h2>
+<%= render "users/shared/navbar" %>
+
 
 <div class="container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info" >
+      <h3>Sign Up</h3>
+      <div style="padding-top:30px" class="panel-body" >
+
+        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
     <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=> "form-group"%>
     </div>
 
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum asdasdasdaas)</em>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
       <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
+      <%= f.password_field :password, autocomplete: "new-password", :class=> "form-group"%>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" ,:class=> "form-group"%>
     </div>
 
       <div class="field">
       <%= f.label 'First Name' %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "name" %>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "name", :class=> "form-group"%>
     </div>
 
     <div class="field">
       <%= f.label 'Last Name' %><br />
-      <%= f.text_field :last_name,autocomplete: "name" %>
+      <%= f.text_field :last_name,autocomplete: "name", :class=> "form-group" %>
     </div>
 
     <div class="field">
       <%= f.label 'Phone number' %><br />
-      <%= f.text_field :phone, autocomplete: "number" %>
+      <%= f.text_field :phone, autocomplete: "number" , :class=> "form-group" %>
     </div>
 
     <div class="checkbox">
@@ -46,7 +54,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit "Sign up", :class => "btn btn-success" %>
     </div>
   <% end %>
 </div>
