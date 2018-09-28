@@ -4,4 +4,5 @@ class Property < ApplicationRecord
   enum style: [:townhouse, :apartment]
   enum basement: [:yes, :no]
   enum floors: [:"1", :"2", :"3", :"4", :"5+"]
+  has_many_attached :images
 end
