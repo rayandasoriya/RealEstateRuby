@@ -1,4 +1,39 @@
-<%= form_with(model: company, local: true) do |form| %>
+<%= form_with(model: company, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=> "form-group"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :website %>
+    <%= f.text_field :website, :class=> "form-group"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address, :class=> "form-group"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :year_founded %>
+    <%= f.text_field :year_founded, :class=> "form-group"%>
+  </div>
+  
+  <div class="field">
+    <%= f.label :size %>
+    <%= f.select :size, Company.sizes.keys, :class=> "form-group" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :revenue %>
+    <%= f.select :revenue, Company.revenues.keys, :class=> "form-group" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :synopsis, :class=> "form-group" %> 
+  </div>
+
   <% if company.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
@@ -12,6 +47,6 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
