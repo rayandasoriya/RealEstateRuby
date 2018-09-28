@@ -11,7 +11,7 @@
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum asdasdasdaas)</em>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -37,11 +37,13 @@
   </div>
 
   <div class="checkbox">
+
     <%= f.check_box :is_hunter%>
-    <%= f.label :role, 'House Hunter'%><br/>
+    <%= f.label :role,'House Hunter'%><br/>
 
     <%= f.check_box :is_realtor%>
     <%= f.label :role, 'Realtor'%><br/>
+
   </div>
 
   <div class="actions">
