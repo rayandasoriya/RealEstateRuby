@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 # Use devise
 gem 'devise'
 
+# Use Bootstrap for UI
+gem 'bootstrap'
+gem 'jquery-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
