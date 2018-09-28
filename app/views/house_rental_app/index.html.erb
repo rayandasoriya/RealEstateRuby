@@ -1,0 +1,16 @@
+<% provide(:title, "Home") %>
+<div class="center jumbotron" style="text-align: center; color: #730E15">
+  <br/>
+  <h1>Application Tracking System</h1>
+  <br/>
+  <h2>
+    Find your dream job, guaranteed!
+  </h2>
+  <br/>
+
+  <%= link_to "Sign up now!",  new_user_registration_path , class: "btn btn-lg btn-primary"%>
+  <br/><br/>
+  <b>Already have an account?</b>
+  <br/>
+  <%= link_to "Login",  new_user_session_path , class: "btn btn-sm btn-primary"%>
+</div>
