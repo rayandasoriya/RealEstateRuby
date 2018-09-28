@@ -11,6 +11,44 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label 'Address' %><br />
+    <%= form.text_field :address, autofocus: true, autocomplete: "name", :class=> "form-group"%>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Owner' %><br />
+    <%= form.text_field :owner, autofocus: true, autocomplete: "name", :class=> "form-group"%>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Price' %><br />
+    <%= form.text_field :price, autofocus: true, autocomplete: "number", :class=> "form-group"%>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Size' %><br />
+    <%= form.text_field :size, autofocus: true, autocomplete: "number", :class=> "form-group"%>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Basement' %><br />
+    <%= form.label :basement, "Yes", :value => "true"  %>
+    <%= form.radio_button :basement, true %>
+    <%= form.label :basement, "No", :value => "false" %>
+    <%= form.radio_button :basement, false, :checked => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Floors' %><br />
+    <%= form.select :floors, Property.floors.keys, autofocus: true, :class=> "form-group"%>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Styles' %><br />
+    <%= form.select :styles, Property.styles.keys, autofocus: true, :class=> "form-group"%>
+  </div>
+
   <div class="actions">
     <%= form.file_field :image %>
     <%= form.submit %>
