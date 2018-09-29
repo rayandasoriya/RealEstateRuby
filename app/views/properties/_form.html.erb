@@ -1,16 +1,4 @@
 <%= form_with(model: property, local: true) do |form| %>
-  <% if property.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
-
-      <ul>
-      <% property.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="form-group">
     <%= form.label 'Address' %><br />
     <%= form.text_field :address, autofocus: true, autocomplete: "name", :class=> "form-control"%>
@@ -31,26 +19,43 @@
     <%= form.text_field :size, autofocus: true, autocomplete: "number", :class=> "form-control"%>
   </div>
 
-  <div class="form-group">
-    <%= form.label 'Basement' %><br />
-    <%= form.label :basement, "Yes", :value => "true"  %>
-    <%= form.radio_button :basement, true %>
-    <%= form.label :basement, "No", :value => "false" %>
-    <%= form.radio_button :basement, false, :checked => true %>
+  <div class="form-group">  
+    <%= form.label 'Basement'%>
+    <div class="form-check">
+      <%= form.label :basement, "Yes", :value => "true", :class=>"form-check-label" %>
+      <%= form.radio_button :basement, true, :class => "form-check form-check-inline" %>
+      <%= form.label :basement, "No", :value => "false", :class=>"form-check-label"%>
+      <%= form.radio_button :basement, false, :checked => true, :class => "form-check form-check-inline" %>
+    </div>
   </div>
 
   <div class="form-group">
     <%= form.label 'Floors' %><br />
-    <%= form.select :floors, Property.floors.keys, autofocus: true, :class=> "form-control"%>
+    <%= form.select(:floors, Property.floors.keys, {}, { :class=> "form-control" })%>
   </div>
 
   <div class="form-group">
     <%= form.label 'Styles' %><br />
-    <%= form.select :styles, Property.styles.keys, autofocus: true, :class=> "form-control"%>
+    <%= form.select(:styles, Property.styles.keys, {}, {:class=> "form-control"})%>
   </div>
+  <div class="form-group">
+    <%= form.file_field :image, :class => "form-control-file" %>
+  </div>
+
+  <% if property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(property.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%# form-control-file %>
-  <div class="actions">
-    <%= form.file_field :image %>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit :class=> "btn btn-success" %>
   </div>
 <% end %>
