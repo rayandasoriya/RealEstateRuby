@@ -25,7 +25,7 @@ class PropertiesController < ApplicationController
   # POST /properties.json
   def create
     @property = Property.new(property_params)
-    @property.images.attach(params[:images])
+    # @property.images.attach(params[:images])
     @property.user_id = current_user.id
     respond_to do |format|
       if @property.save

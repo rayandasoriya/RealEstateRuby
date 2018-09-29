@@ -7,7 +7,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Pic</th>
+        <%# <th>Pic</th> %>
         <th>Price</th>
         <th>Address</th>
         <th>Size</th>
@@ -20,12 +20,12 @@
     <tbody>
       <% @properties.each do |property| %>
         <tr>
-          <td><%= property.image %></td>
+          <%# <td><%= property.image %></td> %>
           <td><%= property.price %></td>
           <td><%= property.address %></td>
           <td><%= property.size %></td>
           <td><%= property.floors %></td>
-          <td><%= User.find(property.realtor_id).first_name%></td>
+          <td><%= User.find(property.user_id).first_name%></td>
           <td><%= link_to 'Show', property %></td>
           <td><%= link_to 'Edit', edit_property_path(property) %></td>
           <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
