@@ -55,8 +55,7 @@ ActiveRecord::Schema.define(version: 2018_09_28_215129) do
   end
 
   create_table "properties", force: :cascade do |t|
-    t.integer "company_id"
-    t.integer "realtor_id"
+    t.integer "user_id"
     t.string "address"
     t.integer "size"
     t.integer "style"

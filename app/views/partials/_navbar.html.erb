@@ -5,9 +5,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <%= link_to "Profile", edit_user_registration_path(current_user.id), :class=>"nav-link"%>
-    </ul>
+    <% if(user_signed_in?) %>
+      <ul class="navbar-nav mr-auto">
+        <%= link_to "Profile", edit_user_registration_path(current_user.id), :class=>"nav-link"%>
+      </ul>
+    <% end %>
   </div>
 </nav>
 

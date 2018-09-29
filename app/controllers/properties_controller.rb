@@ -26,6 +26,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     @property.images.attach(params[:images])
+    @property.user_id = current_user.id
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
@@ -70,6 +71,6 @@ class PropertiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
   def property_params
     params.fetch(:property, {})
-    params.require(:property).permit(:title, :content, images: [])
+    params.require(:property).permit(:owner, :address, :price, :size, :floors, :style, :title, :basement, :content, images: [])
   end
 end
