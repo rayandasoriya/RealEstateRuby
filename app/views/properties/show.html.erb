@@ -1,5 +1,49 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Address:</strong>
+  <%= @property.address %>
+</p>
 
-<%= link_to 'Edit', edit_property_path(@property) %> |
+<p>
+  <strong>Owner:</strong>
+  <%= @property.owner %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @property.price %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @property.size %>
+</p>
+
+<p>
+  <strong>Style:</strong>
+  <%= @property.style %>
+</p>
+
+<p>
+  <strong>Contact Person:</strong>
+  <%= User.find(@property.user_id).first_name %> <%= User.find(@property.user_id).last_name %>
+</p>
+
+<p>
+  <strong>Contact Number:</strong>
+  <%= User.find(@property.user_id).phone %>
+</p>
+<p>
+<%= link_to 'Send Query', new_query_path(@query) %>
+</p>
+
+<p>
+  <%= link_to 'Interested', new_potential_buyer_path(@potential_buyer) %>
+</p>
+
+<p>
+  <%= link_to 'Edit', edit_property_path(@property) %></p>
 <%# <%= image_tag @property.image %> %>
+<p>
 <%= link_to 'Back', properties_path %>
+</p>

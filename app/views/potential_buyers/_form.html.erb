@@ -1,0 +1,17 @@
+<%= form_with(model: potential_buyer, local: true) do |form| %>
+  <% if potential_buyer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(potential_buyer.errors.count, "error") %> prohibited this potential_buyer from being saved:</h2>
+
+      <ul>
+      <% potential_buyer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
