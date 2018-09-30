@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :properties
   resources :companies
   devise_for :users
+  match '/user/new', to: 'users#new', via: 'get'
+  match '/user/create', to: 'users#create', via: 'post'
   match '/users', to: 'users#index', via: 'get'
   match '/hunters', to: 'users#hunter', via: 'get'
   match '/realtors', to: 'users#realtor', via: 'get'
