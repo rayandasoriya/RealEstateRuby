@@ -37,6 +37,11 @@
           <%= f.password_field :current_password, autocomplete: "current-password", :class=>"form-control" %>
         </div>
 
+          <div class="form-group">
+            <%= f.label :company %> <br />
+            <%= f.collection_select :company_id, Company.all, :id, :name, :prompt=>"Select a Company" %>
+          </div>
+
         <div class="form-group">
           <%= f.submit "Update", :class=>"btn btn-success" %>
         </div>

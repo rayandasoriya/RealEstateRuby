@@ -53,7 +53,12 @@
       <%= f.label :role, 'Realtor'%><br/>
     </div>
 
-    <div class="actions">
+          <div class="form-group">
+            <%= f.label :company %> <br />
+            <%= f.collection_select :company_id, Company.all, :id, :name, :prompt=>"Select a Company" %>
+          </div>
+
+          <div class="actions">
       <%= f.submit "Sign up", :class => "btn btn-success" %>
     </div>
   <% end %>
