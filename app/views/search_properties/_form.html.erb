@@ -1,0 +1,17 @@
+<%= form_with(model: search_property, local: true) do |form| %>
+  <% if search_property.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(search_property.errors.count, "error") %> prohibited this search_property from being saved:</h2>
+
+      <ul>
+      <% search_property.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
