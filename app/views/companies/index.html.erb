@@ -28,15 +28,20 @@
           <td><%= company.size %></td>
           <td><%= company.revenue %></td>
           <td><%= company.synopsis %></td>
-          <td><%= link_to 'Show', company %></td>
-          <td><%= link_to 'Edit', edit_company_path(company) %></td>
-          <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+          <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == company.id)%>
+        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+            <%end %>
+            <% if current_user.is_admin %>
+        <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <br>
-
-  <%= link_to 'New Company', new_company_path %>
+  <% if not current_user.is_hunter %>
+    <%= link_to 'New Company', new_company_path %>
+  <% end %>
 </div>
