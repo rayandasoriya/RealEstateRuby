@@ -1,3 +1,9 @@
+<%= render "partials/navbar" %>
+<div class="container" style="margin-top:50px">
+  <div class="card">
+    <div class="card-header">
+      <h3>Property at <%= @property.address%></h3>
+    </div>
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Address:</strong>
@@ -33,19 +39,25 @@
   <strong>Contact Number:</strong>
   <%= User.find(@property.user_id).phone %>
 </p>
+    <% if current_user.is_admin || current_user.is_hunter %>
 <p>
+
 <%= link_to 'Send Query', new_query_path(@query) %>
 </p>
 
 <p>
   <%= link_to 'Interested', new_potential_buyer_path(@potential_buyer) %>
 </p>
+      <%end %>
 
+    <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == @property.user_id )%>
 
-
-<p>
+  <p>
   <%= link_to 'Edit', edit_property_path(@property) %></p>
-<%# <%= image_tag @property.image %> %>
+<%# <%= image_tag @property.image %>
+    <%end %>
 <p>
 <%= link_to 'Back', properties_path %>
 </p>
+  </div>
+</div>

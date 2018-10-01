@@ -42,6 +42,11 @@
         <%= f.text_field :phone, autocomplete: "number" , :class => "form-control" %>
       </div>
 
+        <div class="form-group">
+          <%= f.label :contact_method %> <br />
+          <%= f.select(:contact_method, User.contact_methods.keys, {}, { :class=> "form-control" })%>
+        </div>
+
       <div class="checkbox">
         <%= f.check_box :is_hunter%>
         <%= f.label :role, 'House Hunter'%><br />
@@ -52,7 +57,7 @@
 
       <div class="form-group">
         <%= f.label :company %> <br />
-        <%= f.collection_select :company_id, Company.all, :id, :name, :prompt=>"Select a Company" %>
+        <%= f.collection_select :company_id, Company.all, :id, :name, :prompt=>"Select a Company", :class => "form_control" %>
       </div>
 
       <div class="actions">

@@ -99,6 +99,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_155412) do
     t.integer "contact_method"
     t.boolean "is_hunter"
     t.boolean "is_realtor"
+    t.string "current_role"
     t.integer "company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

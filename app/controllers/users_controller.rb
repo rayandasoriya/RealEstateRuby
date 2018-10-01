@@ -81,6 +81,7 @@ class UsersController < ApplicationController
   # Destroy user Account
   def destroy
     @user = User.find(params[:id])
+    @property.where(Property.user_id == params[:id]).destroy
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'User was successfully deleted.' }
@@ -96,6 +97,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.fetch(:user, {})
-    params.require(:user).permit(:first_name, :last_name, :phone, :email, :password, :password_confirmation, :is_hunter, :is_realtor, :company_id)
+    params.require(:user).permit(:first_name, :last_name, :phone, :email, :password, :password_confirmation, :is_hunter, :is_realtor, :company_id, :contact_method, :current_role)
   end
 end
