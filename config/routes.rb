@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   match '/user/:id/edit', to: 'users#edit', via: 'get'
   match '/user/:id', to: 'users#update', via: 'put'
   match '/user/:id', to: 'users#update', via: 'patch'
+  match '/user/:id', to: 'users#destroy', via: 'delete'
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   match '/users', to: 'users#index', via: 'get'
   match '/hunters', to: 'users#hunter', via: 'get'
