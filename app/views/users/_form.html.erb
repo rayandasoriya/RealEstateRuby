@@ -1,0 +1,65 @@
+<div class="form-group">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control"%>
+</div>
+
+<div class="form-group">
+  <%= f.label :password %>
+  <% if @minimum_password_length %>
+  <em>(
+    <%= @minimum_password_length %> characters minimum)</em>
+  <% end %><br />
+  <%= f.password_field :password, autocomplete: "new-password", :class => "form-control"%>
+</div>
+
+<div class="form-group">
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, autocomplete: "new-password" ,:class => "form-control"%>
+</div>
+
+<div class="form-group">
+  <%= f.label 'First Name' %><br />
+  <%= f.text_field :first_name, autofocus: true, autocomplete: "name", :class => "form-control"%>
+</div>
+
+<div class="form-group">
+  <%= f.label 'Last Name' %><br />
+  <%= f.text_field :last_name,autocomplete: "name", :class => "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label 'Phone number' %><br />
+  <%= f.text_field :phone, autocomplete: "number" , :class => "form-control" %>
+</div>
+
+<div class="checkbox">
+  <%= f.check_box :is_hunter%>
+  <%= f.label :role, 'House Hunter'%><br />
+
+  <%= f.check_box :is_realtor%>
+  <%= f.label :role, 'Realtor'%><br />
+</div>
+
+<div class="form-group">
+  <%= f.label :company %> <br />
+  <%= f.collection_select :company_id, Company.all, :id, :name, :prompt=>"Select a Company" %>
+</div>
+
+<% if user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="actions">
+  <%= f.submit :class => "btn btn-success" %>
+</div>
