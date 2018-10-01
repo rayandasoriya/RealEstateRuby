@@ -4,9 +4,8 @@
     <th> Name </th>
     <th> Email </th>
     <th> Phone </th>
-    <th> Contact Method </th>
-    <th> Methods </th>
-    <th>Company Name</th>
+    <th> Contact </th>
+    <th> Company </th>
     <th colspan="3"></th>
   </tr>
   </thead>
@@ -17,11 +16,24 @@
       <td> <%= user.first_name + ' ' + user.last_name %></td>
       <td> <%= user.email %></td>
       <td> <%= user.phone %></td>
-      <td> <%= user.contact_method %></td>
-      <td> <%= @company.name.find(user.company_id) %></td>
+      <td> 
+        <% if user.contact_method == 'text'%>
+          <%= "Text on #{user.phone}" %>
+        <% elsif user.contact_method == 'phone' %>
+          <%= "Call on #{user.phone}" %>
+        <% else %>
+          <%= "Mail on #{user.email}" %>
+        <% end %>
+      </td>
+      <td> 
+        <% if user.company_id %>
+          <%= Company.find(user.company_id).name %></td>
+        <% else %>
+          <%= 'No Company' %>
+        <% end %>
 
       <td><%= link_to 'Edit', {:controller => :users, :action => :edit, :id => user.id } %></td>
-      <td> <%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
+      <td> <%= link_to 'Destroy', admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %></td>
     </tr>
   <% end %>
   <% end %>
