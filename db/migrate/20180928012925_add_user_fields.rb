@@ -7,6 +7,5 @@ class AddUserFields < ActiveRecord::Migration[5.2]
     add_column :users, :contact_method, :integer
     add_column :users, :is_hunter, :boolean
     add_column :users, :is_realtor, :boolean
-    add_column :users, :current_role, :string
   end
 end
