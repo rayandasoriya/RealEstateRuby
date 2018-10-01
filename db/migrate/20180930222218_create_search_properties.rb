@@ -3,8 +3,8 @@ class CreateSearchProperties < ActiveRecord::Migration[5.2]
     create_table :search_properties do |t|
       t.integer :property_id
       t.string :address
-      t.integer :size
-      t.integer :price
+      t.string :size
+      t.string :price
       t.timestamps
     end
   end

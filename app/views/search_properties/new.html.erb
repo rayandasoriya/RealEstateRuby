@@ -9,12 +9,12 @@
 
   <div class="field">
     <%= f.label 'Property Size' %><br />
-    <%= f.select :size, options_for_select(%w['100-200', '200-300', '300-400', '400-500', '500+']), :include_blank => true %>
+    <%= f.select :size, options_for_select(['1-50', '51-100', '101-1000', '1000+']), :include_blank => true %>
   </div>
 
   <div class="field">
     <%= f.label 'Property Price' %><br />
-    <%= f.select :price, options_for_select(%w['1000-2000', '2000-3000', '3000-4000', '4000-5000', '5000+']), :include_blank => true %>
+    <%= f.select :price, options_for_select(['1000-2000', '2000-3000', '3000-4000', '4000+']), :include_blank => true %>
   </div>
 
   <div class="actions">

@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 2018_09_30_222218) do
   create_table "properties", force: :cascade do |t|
     t.integer "user_id"
     t.string "address"
-    t.integer "size"
+    t.string "size"
     t.integer "style"
-    t.integer "price"
+    t.string "price"
     t.integer "floors"
     t.boolean "basement"
     t.string "owner"
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(version: 2018_09_30_222218) do
   create_table "search_properties", force: :cascade do |t|
     t.integer "property_id"
     t.string "address"
-    t.integer "size"
-    t.integer "price"
+    t.string "size"
+    t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
