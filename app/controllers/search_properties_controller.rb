@@ -32,30 +32,6 @@ class SearchPropertiesController < ApplicationController
     @search_property = SearchProperty.find(params[:id])
   end
 
-  # PATCH/PUT /search_properties/1
-  # PATCH/PUT /search_properties/1.json
-  def update
-    respond_to do |format|
-      if @search_property.update(search_property_params)
-        format.html { redirect_to @search_property, notice: 'Search property was successfully updated.' }
-        format.json { render :show, status: :ok, location: @search_property }
-      else
-        format.html { render :edit }
-        format.json { render json: @search_property.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /search_properties/1
-  # DELETE /search_properties/1.json
-  def destroy
-    @search_property.destroy
-    respond_to do |format|
-      format.html { redirect_to search_properties_url, notice: 'Search property was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_search_property

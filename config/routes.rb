@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :search_properties
-  resources :searches
   resources :potential_buyers
   resources :queries
   resources :properties
