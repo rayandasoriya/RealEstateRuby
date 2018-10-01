@@ -23,13 +23,10 @@ class SearchPropertiesController < ApplicationController
   # POST /search_properties
   # POST /search_properties.json
   def create
-    Search.find_each(&:destroy)
+    SearchProperty.find_each(&:destroy)
     @search_property = SearchProperty.create(search_property_params)
+    puts @search_properties
     redirect_to @search_property
-  end
-
-  def show
-    @search_property = SearchProperty.find(params[:id])
   end
 
   private
