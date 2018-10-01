@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /
@@ -33,6 +34,10 @@ class UsersController < ApplicationController
 
   # Not implemented yet.
   def show
+  end
+
+  # GET /user/id/edit
+  def edit
   end
 
   # GET /user/new
@@ -84,15 +89,13 @@ class UsersController < ApplicationController
   end
 
   private
-  def sign_up_params
-    params.require(:user).permit(:id, :first_name, :last_name, :phone, :email, :password, :is_recruiter, :is_applicant,:company_id)
-  end
 
-  def account_update_params
-    params.require(:user).permit(:id, :first_name, :last_name,:phone, :name, :email, :password, :current_password, :is_recruiter, :is_applicant, :company_id)
+  def set_user
+    @user = User.find(params[:id])
   end
 
   def user_params
-    params.require(:user).permit(:id, :first_name, :last_name, :phone, :email, :password, :is_hunter, :is_realtor,:company_id)
+    params.fetch(:user, {})
+    params.require(:user).permit(:first_name, :last_name, :phone, :email, :password, :password_confirmation, :is_hunter, :is_realtor, :company_id)
   end
 end

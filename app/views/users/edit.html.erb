@@ -5,8 +5,8 @@
       <h3>New User</h3>
     </div>
     <div class="card-body">
-      <%= form_for @user, url: { :action => "create" } do |form| %>
-        <%= render 'form', { f: form, user: @user} %>
+      <%= form_for @user, url: { :action => "update" } do |form| %>
+        <%= render 'form', { f: form , user: @user} %>
       <% end %>
     </div>
   </div>
