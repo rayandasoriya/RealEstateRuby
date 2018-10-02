@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**Name:** Real Estate Application
 
-Things you may want to cover:
+**Contributors:** 
 
-* Ruby version
+  - Harsh Aagrawal - hagrawa2
+  - Rayan Dasoriya - rdasori
+  - Juhi Madhwani - jhmadhwa
 
-* System dependencies
+Heroku Deployment URL: https://mysterious-ravine-96973.herokuapp.com/
 
-* Configuration
+Admin details:
 
-* Database creation
+**Email**: admin@realestate.com | **Password**: password
 
-* Database initialization
+House Hunter details _[Unless deleted by someone]_:
 
-* How to run the test suite
+**Email**: hunter@realestate.com | **Password**: password
 
-* Services (job queues, cache servers, search engines, etc.)
+Realtor details _[Unless deleted by someone]_:
 
-* Deployment instructions
-
-* ...
+**Email**: realtor@realestate.com | **Password**: password
