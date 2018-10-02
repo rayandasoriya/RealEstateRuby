@@ -1,66 +1,53 @@
 <%= render "partials/navbar" %>
 <div class="container" style="margin-top:50px">
-  <div class="card">
-    <div class="card-header">
-      <h3>Property at <%= @property.address%></h3>
+  <div class="card" style="width: 64rem;">
+    <%= image_tag @property.image_url, :class=>"card-img-top" %>
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= @property.address %>
+      </h5>
+      <p>
+        <strong>Address:</strong>
+        <%= @property.address %>
+      </p>
+
+
+      <p> <strong>Owner: </strong>
+        <%= @property.owner %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @property.price.to_s %>
+      </p>
+
+      <p>
+        <strong>Size:</strong>
+        <%= @property.size.to_s %>
+      </p>
+
+      <p>
+        <strong>Style:</strong>
+        <%= @property.style %>
+      </p>
+
+      <p>
+        <strong>Contact Person:</strong>
+        <%= User.find(@property.user_id).first_name %>
+        <%= User.find(@property.user_id).last_name %>
+      </p>
+
+      <p>
+        <strong>Contact Number:</strong>
+        <%= User.find(@property.user_id).phone %>
+      </p>
+      <%= link_to 'Send Query', new_query_path(@query), :class=>"btn btn-success" %>
+      <%= link_to 'Interested', new_potential_buyer_path(@potential_buyer), :class=>"btn btn-success" %>
+
+      <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == @property.user_id )%>
+      <%= link_to 'Edit', edit_property_path(@property), :class=>"btn btn-success" %>
+      <% end %>
+      <%= link_to 'Back', properties_path, :class=>"btn btn-secondary" %>
     </div>
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Address:</strong>
-  <%= @property.address %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @property.owner %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @property.price.to_s %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @property.size.to_s %>
-</p>
-
-<p>
-  <strong>Style:</strong>
-  <%= @property.style %>
-</p>
-
-<p>
-  <strong>Contact Person:</strong>
-  <%= User.find(@property.user_id).first_name %> <%= User.find(@property.user_id).last_name %>
-</p>
-
-<p>
-  <strong>Contact Number:</strong>
-  <%= User.find(@property.user_id).phone %>
-</p>
-    <%= image_tag @property.image_url %>
-    <% if current_user.is_admin || current_user.is_hunter %>
-<p>
-
-<%= link_to 'Send Query', new_query_path(@query) %>
-</p>
-
-<p>
-  <%= link_to 'Interested', new_potential_buyer_path(@potential_buyer) %>
-</p>
-
-      <%end %>
-
-    <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == @property.user_id )%>
-
-  <p>
-  <%= link_to 'Edit', edit_property_path(@property) %></p>
-
-    <%end %>
-<p>
-
-<%= link_to 'Back', properties_path %>
-</p>
   </div>
 </div>
