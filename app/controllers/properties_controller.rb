@@ -1,5 +1,7 @@
 class PropertiesController < ApplicationController
   before_action :set_property, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token, only:[:search, :new_search]
+
 
   # GET /properties
   # GET /properties.json
@@ -60,6 +62,32 @@ class PropertiesController < ApplicationController
       format.html { redirect_to properties_url, notice: 'Property was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  INTEGER_MAX = 2147483647
+  SIZE_MAPPING = {
+    1 => [0, 500],
+    2 => [500, 1500],
+    3 => [1500, 3000],
+    4 => [3000, INTEGER_MAX]
+  }
+  PRICE_MAPPING = {
+    1 => [0, 100000],
+    2 => [100000, 250000],
+    3 => [250000, 500000],
+    4 => [500000, 1000000],
+    5 => [1000000, INTEGER_MAX]
+  }
+
+  def new_search
+  end
+
+  def search 
+    @sp = params.fetch(:search_params, {})
+    @properties = Property.all
+    @properties = @properties.where(:size => SIZE_MAPPING[@sp['size'].to_i][0]...SIZE_MAPPING[@sp['size'].to_i][1]) if @sp['size'].present?
+    @properties = @properties.where(['address LIKE ?', "%#{@sp['address']}%"]) if @sp['address'].present? && @sp['address'] != ""
+    @properties = @properties.where(:price => PRICE_MAPPING[@sp['price'].to_i][0]...PRICE_MAPPING[@sp['price'].to_i][1]) if @sp['price'].present?
   end
 
   private

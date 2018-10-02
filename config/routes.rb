@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :search_properties
-  resources :searches
   resources :potential_buyers
   resources :queries
   resources :properties
@@ -14,6 +12,10 @@ Rails.application.routes.draw do
   match '/user/:id', to: 'users#update', via: 'patch'
   match '/user/:id', to: 'users#destroy', via: 'delete'
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+
+  # Routes for Property Search
+  match '/property/search' => 'properties#new_search', :via => 'get', :as => 'new_property_search'
+  match '/property/search' => 'properties#search', :via => 'post', :as=> 'property_search'
 
   match '/users', to: 'users#index', via: 'get'
   match '/hunters', to: 'users#hunter', via: 'get'

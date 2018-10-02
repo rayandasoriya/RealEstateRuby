@@ -1,16 +1,12 @@
 <%= render "partials/navbar" %>
-<p id="notice"><%= notice %></p>
-
 <div class="container">
-  <h1>Properties</h1>
+  <h1>Matching Properties</h1>
     <%= render 'table' %>
-  <br>
-
   <p>
     <%= link_to 'Search Properties', new_property_search_path %>
   </p>
 
   <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
-<%= link_to 'New Property', new_property_path %>
-    <%end %>
+    <%= link_to 'New Property', new_property_path %>
+  <%end %>
 </div>

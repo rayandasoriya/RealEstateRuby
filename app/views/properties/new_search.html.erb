@@ -1,6 +1,4 @@
-<h1>New Search Property</h1>
-
-<%= form_for(@search_property, html: {method: :post}) do |f| %>
+<%= form_for :search_params, url:"search" do |f| %>
 
   <div class="field">
     <%= f.label 'Address' %><br />

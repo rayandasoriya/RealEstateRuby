@@ -20,7 +20,7 @@ User.create!([{
 User.create!([{
   first_name: 'realtor', 
   last_name: 'x', 
-  email: 'hunter@realestate.com',
+  email: 'realtor@realestate.com',
   password: 'password', 
   is_hunter: 0, 
   is_realtor: 1, 

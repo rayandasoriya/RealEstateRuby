@@ -1,2 +1,0 @@
-module SearchPropertiesHelper
-end
