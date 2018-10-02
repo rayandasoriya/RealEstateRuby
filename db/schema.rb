@@ -75,15 +75,6 @@ ActiveRecord::Schema.define(version: 2018_10_01_161437) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "search_properties", force: :cascade do |t|
-    t.integer "property_id"
-    t.string "address"
-    t.string "size"
-    t.string "price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

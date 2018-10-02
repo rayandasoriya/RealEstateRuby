@@ -1,4 +1,4 @@
-class HouseRentalAppController < ApplicationController
+class RealEstateAppController < ApplicationController
   def index
     if !user_signed_in?
       respond_to do |format|
