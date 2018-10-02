@@ -1,6 +1,13 @@
-<h1>Editing Property</h1>
+<%= render "partials/navbar" %>
+<div class="container">
+  <div class="card" style="width: 60rem; margin-top: 50px;" >
+    <div class="card-header">
+      <h1>Edit Property</h1>
+      </div>
+    <div class="card-body">
+      <%= render 'form', property: @property %>
+    </div>
+  </div>
+  </div>
+</div>
 
-<%= render 'form', property: @property %>
-
-<%= link_to 'Show', @property %> |
-<%= link_to 'Back', properties_path %>
