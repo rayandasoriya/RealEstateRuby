@@ -1,0 +1,33 @@
+<table class="table">
+  <thead>
+    <tr>
+      <%# <th>Pic</th> %>
+      <th>Price</th>
+      <th>Address</th>
+      <th>Size</th>
+      <th>Floors</th>
+      <th>Contact</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @properties.each do |property| %>
+      <tr>
+        <%# <td><%= property.image </td> %>
+        <td><%= property.price %></td>
+        <td><%= property.address %></td>
+        <td><%= property.size %></td>
+        <td><%= property.floors %></td>
+        <td><%= User.find(property.user_id).first_name%></td>
+        <td><%= link_to 'Show', property %></td>
+        <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+          <%end %>
+          <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

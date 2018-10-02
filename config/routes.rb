@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   match '/user/:id', to: 'users#destroy', via: 'delete'
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
+  # Routes for Property Search
+  match '/property/search' => 'properties#new_search', :via => 'get', :as => 'new_property_search'
+  match '/property/search' => 'properties#search', :via => 'post', :as=> 'property_search'
+
   match '/users', to: 'users#index', via: 'get'
   match '/hunters', to: 'users#hunter', via: 'get'
   match '/realtors', to: 'users#realtor', via: 'get'
