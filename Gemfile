@@ -6,6 +6,8 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 
+
+
 # Database for development and testing
 group :development, :test do
 # Use sqlite3 as the database for Active Record
