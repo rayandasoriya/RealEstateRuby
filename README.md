@@ -8,7 +8,7 @@
   - Rayan Dasoriya - rdasori
   - Juhi Madhwani - jhmadhwa
 
-Heroku Deployment URL: https://mysterious-ravine-96973.herokuapp.com/
+Heroku Deployment URL: https://whispering-coast-30139.herokuapp.com
 
 Admin details:
 
