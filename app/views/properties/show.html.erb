@@ -39,6 +39,7 @@
   <strong>Contact Number:</strong>
   <%= User.find(@property.user_id).phone %>
 </p>
+    <%= image_tag @property.image_url %>
     <% if current_user.is_admin || current_user.is_hunter %>
 <p>
 
@@ -48,15 +49,17 @@
 <p>
   <%= link_to 'Interested', new_potential_buyer_path(@potential_buyer) %>
 </p>
+
       <%end %>
 
     <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == @property.user_id )%>
 
   <p>
   <%= link_to 'Edit', edit_property_path(@property) %></p>
-<%# <%= image_tag @property.image %>
+
     <%end %>
 <p>
+
 <%= link_to 'Back', properties_path %>
 </p>
   </div>

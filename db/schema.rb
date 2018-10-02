@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_161437) do
+ActiveRecord::Schema.define(version: 2018_10_02_020047) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2018_10_01_161437) do
     t.integer "year_built"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "queries", force: :cascade do |t|
@@ -71,15 +72,6 @@ ActiveRecord::Schema.define(version: 2018_10_01_161437) do
     t.integer "property_id"
     t.string "subject"
     t.text "message"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "search_properties", force: :cascade do |t|
-    t.integer "property_id"
-    t.string "address"
-    t.string "size"
-    t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

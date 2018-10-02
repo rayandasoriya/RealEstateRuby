@@ -4,4 +4,7 @@ class Property < ApplicationRecord
   enum style: [:townhouse, :apartment]
   enum floors: [:"1", :"2", :"3", :"4", :"5+"]
   # has_many_attached :images
+  mount_uploader :image, ImageUploader
+  serialize :image, JSON
+
 end

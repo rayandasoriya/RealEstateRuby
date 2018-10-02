@@ -10,7 +10,7 @@
     <%= link_to 'Search Properties', new_property_search_path %>
   </p>
 
-  <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
+  <%# if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
 <%= link_to 'New Property', new_property_path %>
-    <%end %>
+    <%#end %>
 </div>
