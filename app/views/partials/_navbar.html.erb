@@ -1,31 +1,12 @@
 
 <nav class="navbar navbar-dark bg-dark justify-content-between" style="margin-below: 50px">
-  <%= link_to "HouseRental", root_path, :class => "navbar-brand" %>
+  <%= link_to "RealEstate", root_path, :class => "navbar-brand" %>
   <% if(user_signed_in?) %>
     <ul class="navbar-nav mr-auto">
       <li>
         <%= link_to "Profile", edit_user_registration_path(current_user.id), :class=>"btn btn-success"%>
       </li>
     </ul>
-    <% if current_user.is_realtor && current_user.is_hunter
-      current_user.current_role= "realtor"
- %>     <%= link_to "Change role", root_path, current_user.current_role = "hunter", :class=>"btn btn-outline-danger" %>
-
-
-    <%end %>
-
-    <% if current_user.is_realtor && current_user.is_hunter && current_user.current_role =="realtor" %>
-
-         <%= link_to "Change role", root_path, current_user.current_role = "hunter", :class=>"btn btn-outline-danger" %>
-
-    <%end %>
-
-    <% if current_user.is_realtor && current_user.is_hunter && current_user.current_role =="hunter" %>
-
-         <%= link_to "Change role", root_path, current_user.current_role = "hunter", :class=>"btn btn-outline-danger" %>
-
-    <%end %>
-
     <li>
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class=>"btn btn-outline-danger" %>        
     </li>

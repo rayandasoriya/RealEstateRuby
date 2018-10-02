@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HouseRentalAppControllerTest < ActionDispatch::IntegrationTest
+class RealEstateAppControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
