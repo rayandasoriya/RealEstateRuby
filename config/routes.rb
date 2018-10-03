@@ -14,7 +14,6 @@ Rails.application.routes.draw do
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
 
   # Routes for Property Search
-  match '/property/search' => 'properties#new_search', :via => 'get', :as => 'new_property_search'
   match '/property/search' => 'properties#search', :via => 'post', :as=> 'property_search'
 
   match '/users', to: 'users#index', via: 'get'

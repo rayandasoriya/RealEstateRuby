@@ -79,9 +79,6 @@ class PropertiesController < ApplicationController
     5 => [1000000, INTEGER_MAX]
   }
 
-  def new_search
-  end
-
   def search 
     @sp = params.fetch(:search_params, {})
     @properties = Property.all
