@@ -25,7 +25,7 @@ class PotentialBuyersController < ApplicationController
   # POST /potential_buyers.json
   def create
     @potential_buyer = PotentialBuyer.new(potential_buyer_params)
-
+    @potential_buyer.user_id = current_user.id
     respond_to do |format|
       if @potential_buyer.save
         format.html { redirect_to @potential_buyer, notice: 'Potential buyer was successfully created.' }
@@ -62,13 +62,15 @@ class PotentialBuyersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_potential_buyer
-      @potential_buyer = PotentialBuyer.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def potential_buyer_params
-      params.fetch(:potential_buyer, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_potential_buyer
+    @potential_buyer = PotentialBuyer.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def potential_buyer_params
+    params.fetch(:potential_buyer, {})
+    params.require(:potential_buyer).permit(:user_id, :property_id)
+  end
 end
