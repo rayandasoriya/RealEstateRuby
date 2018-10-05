@@ -28,7 +28,8 @@
       </div>
       <% end -%>
       <%= f.submit "Log in" ,:class=>"btn btn-success"%>
-      <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Google</a>
+      <%= link_to "Sign in with Google", user_google_omniauth_authorize_path, :class => "btn btn-primary" %>
+      <%# <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Google</a> %>
       </div>
       <% end %>
       </form>

@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   # Destroy user Account
   def destroy
     @user = User.find(params[:id])
-    @property.where(Property.user_id == params[:id]).destroy
+    # Property.where(@property.user_id == params[:id]).destroy
     @user.destroy
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'User was successfully deleted.' }

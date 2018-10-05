@@ -88,3 +88,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # Gem to seed the DB
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
+# Gem for Omniauth
+gem 'omniauth' 
+gem 'omniauth-google-oauth2'
+
+# Gem for ENV variables Management
+gem 'figaro'
+

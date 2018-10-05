@@ -289,4 +289,10 @@ Devise.setup do |config|
   # end
 
   config.scoped_views = true
+
+  # OmniAuth
+  config.omniauth :google_oauth2, "927630519041-vm3rl21e4qfh1j9bk9sfu4dauv1fqme6.apps.googleusercontent.com", "SOZM1HHk3u8wU6MyEPkX5zmL", name:'google', scope: 'email', info_fields: 'email, first_name, last_name'
 end
+
+#  Client-ID => 
+#  secret-key => 

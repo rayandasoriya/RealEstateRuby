@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :queries
   resources :properties
   resources :companies
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   match '/user/new', to: 'users#new', via: 'get'
   match '/user/create', to: 'users#create', via: 'post'
