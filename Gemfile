@@ -92,6 +92,3 @@ gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'omniauth' 
 gem 'omniauth-google-oauth2'
 
-# Gem for ENV variables Management
-gem 'figaro'
-

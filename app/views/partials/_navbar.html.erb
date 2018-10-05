@@ -4,7 +4,7 @@
   <% if(user_signed_in?) %>
     <ul class="navbar-nav mr-auto">
       <li>
-        <%= link_to "Profile", edit_user_registration_path(current_user.id), :class=>"btn btn-success"%>
+        <%= link_to "Profile", user_edit_path(current_user.id), :class=>"btn btn-success"%>
       </li>
     </ul>
     <li>
