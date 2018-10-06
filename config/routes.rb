@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :companies
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
+  # Custom Routes for Users
   match '/user/new', to: 'users#new', via: 'get'
   match '/user/create', to: 'users#create', via: 'post'
   match '/user/:id/edit', to: 'users#edit', via: 'get', as: 'user_edit'
@@ -15,6 +16,8 @@ Rails.application.routes.draw do
 
   # Routes for Property Search
   match '/property/search' => 'properties#search', :via => 'post', :as=> 'property_search'
+  # Route to send Enquiry
+  match '/property/enquiry' => 'queries#create', :via => 'post', :as => 'new_enquiry'
 
   match '/users', to: 'users#index', via: 'get'
   match '/hunters', to: 'users#hunter', via: 'get'

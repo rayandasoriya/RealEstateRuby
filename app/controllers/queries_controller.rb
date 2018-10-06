@@ -12,11 +12,6 @@ class QueriesController < ApplicationController
   def show
   end
 
-  # GET /queries/new
-  def new
-    @query = Query.new
-  end
-
   # GET /queries/1/edit
   def edit
   end
@@ -25,6 +20,8 @@ class QueriesController < ApplicationController
   # POST /queries.json
   def create
     @query = Query.new(query_params)
+    # Set User and Property_id to the Queries
+    @query.user_id = current_user.id
 
     respond_to do |format|
       if @query.save
@@ -32,20 +29,6 @@ class QueriesController < ApplicationController
         format.json { render :show, status: :created, location: @query }
       else
         format.html { render :new }
-        format.json { render json: @query.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /queries/1
-  # PATCH/PUT /queries/1.json
-  def update
-    respond_to do |format|
-      if @query.update(query_params)
-        format.html { redirect_to @query, notice: 'Query was successfully updated.' }
-        format.json { render :show, status: :ok, location: @query }
-      else
-        format.html { render :edit }
         format.json { render json: @query.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +52,6 @@ class QueriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def query_params
-      params.fetch(:query, {})
+      params.fetch(:query_params, {}).permit(:subject, :message, :property_id)
     end
 end
