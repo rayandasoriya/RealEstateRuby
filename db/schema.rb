@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2018_10_05_071800) do
     t.integer "style"
     t.integer "price"
     t.integer "floors"
-    t.boolean "basement"
+    t.string "basement"
     t.string "owner"
     t.integer "year_built"
     t.datetime "created_at", null: false

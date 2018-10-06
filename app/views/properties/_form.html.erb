@@ -20,14 +20,9 @@
     <%= form.text_field :size, autofocus: true, autocomplete: "name", :class=> "form-control"%>
   </div>
 
-  <div class="form-group">  
-    <%= form.label 'Basement'%>
-    <div class="form-check">
-      <%= form.label :basement, "Yes", :value => true, :class=>"form-check-label" %>
-      <%= form.radio_button :basement, true, :class => "form-check form-check-inline" %>
-      <%= form.label :basement, "No", :value => false, :class=>"form-check-label"%>
-      <%= form.radio_button :basement, false, :checked => true, :class => "form-check form-check-inline" %>
-    </div>
+  <div class="form-group">
+    <%= form.label 'Basement' %><br />
+    <%= form.select(:basement, Property.basements.keys, {}, { :class=> "form-control" })%>
   </div>
 
   <div class="form-group">
