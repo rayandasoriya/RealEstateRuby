@@ -2,7 +2,7 @@
 
 <%= render "partials/navbar" %>
 <div class="container" style="margin-top:50px">
-  <div class="card" style="width: 64rem;">
+  <div class="card">
     <% if @property.image_url %>
       <%= image_tag @property.image_url, :class=>"card-img-top" %>
     <% end %>
@@ -69,5 +69,9 @@
 
     </div>
   </div>
+  <%# Show only to users who have not sent the query yet %>
+  <% if (current_user.is_hunter && Query.where(property_id: @property.id, user_id: current_user.id) == nil) || current_user.is_admin %>
+    <%= render 'queryform' %>
+  <% end %>
 </div>
 <% end %>

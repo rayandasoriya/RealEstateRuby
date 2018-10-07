@@ -9,26 +9,22 @@
       <%# All %>
 
       <%= link_to 'Edit Profile', edit_user_registration_path(current_user.id), :class=>"list-group-item list-group-item-action"%>
-      <%= link_to 'View Properties', properties_path, :class=>"list-group-item list-group-item-action"%>
+      <%= link_to 'View Properties', properties_path, :class => "list-group-item list-group-item-action"%>
+      <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%>
 
       <%# Admin & Realtor %>
-        <% if  current_user.is_realtor || current_user.is_admin %>
-        <% if current_user.is_realtor && current_user.company_id || current_user.is_admin %>
-      <%= link_to 'Add Property', new_property_path, :class=>"list-group-item list-group-item-action"%>
-          <% else %>
-          <%= link_to 'Add Company', new_company_path, :class => "list-group-item list-group-item-action"%>
-
-    <% end %>
-      <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"%>
-        <% end %>
+      <% if  current_user.is_realtor || current_user.is_admin %>
+        <%= link_to 'Add Property', new_property_path, :class=>"list-group-item list-group-item-action"%>
+        <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"%>
+        <%= link_to 'Add Company', new_company_path, :class => "list-group-item list-group-item-action"%>
+      <% end %>
       <%# Admin %>
       <% if current_user.is_admin %>
-        <%= link_to 'Add Company', new_company_path, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'Add User',{:controller => :users, :action => :new }, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Users', users_path, :class=>"list-group-item list-group-item-action"%>
         <%= link_to 'View Hunters', hunters_path, :class => "list-group-item list-group-item-action"%>
         <%= link_to 'View Realtors', realtors_path, :class => "list-group-item list-group-item-action"%>
-        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
