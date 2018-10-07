@@ -32,7 +32,7 @@ class QueriesController < ApplicationController
     # Respond
     respond_to do |format|
       if @reply.save
-        ReplyMailer.with(reply: @reply).new_reply_email.deliver_now
+        ReplyMailer.with(reply: @reply).new_reply_mail.deliver_now
         format.html { redirect_to @query, notice: 'Reply successfully posted.' }
         format.json { render :show, status: :created, location: @query }
       else 
