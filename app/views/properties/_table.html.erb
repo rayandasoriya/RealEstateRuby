@@ -19,21 +19,24 @@
         <td><%= property.address %></td>
         <td><%= property.size %></td>
         <td><%= property.floors %></td>
-       
         <td>
-          <% if property.company_id != nil%>
-            <%= Company.find(property.company_id).name%>
+          <% if (property.company_id)%>
+            <%= Company.find(property.company_id).name %>
           <% end %>
         </td>
 
         <td><%= link_to 'Show', property %></td>
-        <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-          <%end %>
-          <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <% end %>
+        <% if current_user.is_admin || ( current_user.is_realtor && current_user.id == property.created_by ) %>
+          <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <%end %>
+        <td></td>
+        <% if current_user.is_admin || ( current_user.is_realtor && current_user.id == property.created_by )%>
+          <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
+
+
     <% end %>
   </tbody>
 </table>
