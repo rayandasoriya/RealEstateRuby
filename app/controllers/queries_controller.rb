@@ -28,10 +28,11 @@ class QueriesController < ApplicationController
     @reply.user_id = current_user.id
 
     # Find that Query to redirect back to same page/ Re-render the same page
-    @query = Query.find(@reply.query_id);
+    @query = Query.find(@reply.query_id)
     # Respond
     respond_to do |format|
       if @reply.save
+        ReplyMailer.with(reply: @reply).new_reply_mail.deliver_now
         format.html { redirect_to @query, notice: 'Reply successfully posted.' }
         format.json { render :show, status: :created, location: @query }
       else 
