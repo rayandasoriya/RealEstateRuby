@@ -9,56 +9,52 @@
         <%= @property.address %>
       </h5>
       <p>
-        <strong>Address:</strong>
+        <strong>Address :</strong>
         <%= @property.address %>
       </p>
 
 
-      <p> <strong>Owner: </strong>
+      <p> <strong>Owner : </strong>
         <%= @property.owner %>
       </p>
 
       <p>
-        <strong>Price:</strong>
+        <strong>Price :</strong>
         <%= @property.price.to_s %>
       </p>
 
       <p>
-        <strong>Size:</strong>
+        <strong>Size :</strong>
         <%= @property.size.to_s %>
       </p>
 
       <p>
-        <strong>Floors:</strong>
+        <strong>Floors :</strong>
         <%= @property.floors.to_s %>
       </p>
 
       <p>
-        <strong>Basement:</strong>
+        <strong>Basement :</strong>
         <%= @property.basement.to_s %>
       </p>
 
 
       <p>
-        <strong>Style:</strong>
+        <strong>Style :</strong>
         <%= @property.style %>
       </p>
 
       <p>
-        <strong>Contact Person:</strong>
-        <%= User.find(@property.user_id).first_name %>
-        <%= User.find(@property.user_id).last_name %>
+        <strong>Company :</strong>
+        <% if @property.company_id != nil %>
+          <%= Company.find(@property.company_id).name %>
+        <% end %>
       </p>
-
-      <p>
-        <strong>Contact Number:</strong>
-        <%= User.find(@property.user_id).phone %>
-      </p>
+      
       <%= link_to 'Send Query', new_query_path(@query), :class=>"btn btn-success" %>
       <%= link_to 'Interested', potential_buyers_path(property_id: @property.id), :method => 'post', :class=>"btn btn-success" %>
-
-      <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == @property.user_id )%>
-      <%= link_to 'Edit', edit_property_path(@property), :class=>"btn btn-success" %>
+      <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == @property.company_id )%>
+        <%= link_to 'Edit', edit_property_path(@property), :class=>"btn btn-success" %>
       <% end %>
       <%= link_to 'Back', properties_path, :class=>"btn btn-secondary" %>
     </div>
