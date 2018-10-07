@@ -1,25 +1,34 @@
+<%= render "partials/navbar" %>
 <p id="notice"><%= notice %></p>
 
-<h1>Queries</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @queries.each do |query| %>
+<div class="container">
+  <% if current_user.is_admin %>
+    <h1> All Enquries </h1>
+  <% elsif current_user.is_hunter %>
+    <h1> Your Enquiries </h1>
+  <% elsif current_user.is_realtor %>
+    <h1> Enquiries You can Reply to</h1>
+  <% end %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= link_to 'Show', query %></td>
-        <td><%= link_to 'Edit', edit_query_path(query) %></td>
-        <td><%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Subject</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @queries.each do |query| %>
+        <tr> 
+          <td> <%= query.subject %> </td> 
+          <td><%= link_to 'Show', query %></td>
+          <td><%= link_to 'Edit', edit_query_path(query) %></td>
+          <td><%= link_to 'Destroy', query, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Query', new_query_path %>
+  <br>
+</div>

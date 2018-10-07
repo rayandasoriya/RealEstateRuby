@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   # Route to send Enquiry
   match '/property/enquiry' => 'queries#create', :via => 'post', :as => 'new_enquiry'
 
+  # Route to Create New Reply
+  match '/queries/reply' => 'queries#reply', :via => :post, :as => :new_reply
+
   match '/users', to: 'users#index', via: 'get'
   match '/hunters', to: 'users#hunter', via: 'get'
   match '/realtors', to: 'users#realtor', via: 'get'

@@ -1,4 +1,40 @@
+<%= render "partials/navbar" %>
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_query_path(@query) %> |
-<%= link_to 'Back', queries_path %>
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h4> <%= @query.subject %> </h4>
+    </div>
+    <div class="card-body">
+      <p> <%= @query.message %> </p>
+      <p>
+        <strong>Property :</strong>
+        <%= Property.find(@query.property_id).address %>
+      </p>
+
+    </div>
+
+    <%= link_to 'Back', queries_path, :class=> "btn btn-secondary" %>
+  </div>
+</div>
+
+<% Reply.where(query_id: @query.id).each do |reply|%>
+
+<div class="container", style="margin-top:10px">
+  <div class="card">
+    <div class="card-header">
+      <p style="display:inline"><strong><%= User.find(reply.user_id).first_name %> </strong></p>
+      <p class="float-right" style="display:inline;"> <%= reply.created_at %> </p>
+    </div>
+    <div class="card-body">
+      <p> <%= reply.message %> </p>
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+<%= render 'replyform'  %>
+
+

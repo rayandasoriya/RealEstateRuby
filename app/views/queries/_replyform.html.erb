@@ -1,0 +1,18 @@
+<%= form_for :reply_params, url: new_reply_path do |f| %>
+<div class="container" , style="margin-top:50px; margin-bottom:50px;">
+  <h2>Reply</h2>
+    <div class="form-group">
+      <%= f.text_field :message, :class => "form-control" %>
+    </div>
+
+    <%# Adding Current Query ID as a hidden field in the form %>
+    <%= f.hidden_field :query_id, :value => @query.id %>
+
+  <% flash.each do |key, value| %>
+    <p class="alert alert-danger"> <%= value %> </p>
+  <% end %>
+  <div class="form-group">
+      <%= f.submit "Send", :class=>"btn btn-success float-right" %>
+  </div>
+</div>
+<% end %>

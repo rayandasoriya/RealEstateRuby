@@ -1,6 +1,6 @@
 class Property < ApplicationRecord
   belongs_to :company
-  validates_presence_of :address, :owner, :price, :size, :basement, :floors, :style
+  validates_presence_of :address, :owner, :price, :size
   enum basement: [:No, :Yes]
   enum style: [:townhouse, :apartment]
   enum floors: [:"1", :"2", :"3", :"4", :"5+"]
