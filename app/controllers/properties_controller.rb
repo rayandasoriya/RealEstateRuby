@@ -33,6 +33,7 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     # @property.images.attach(params[:images])
     @property.company_id = current_user.company_id
+    @property.created_by = current_user.id
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
