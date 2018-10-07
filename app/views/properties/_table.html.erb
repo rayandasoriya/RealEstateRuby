@@ -19,7 +19,13 @@
         <td><%= property.address %></td>
         <td><%= property.size %></td>
         <td><%= property.floors %></td>
-        <td><%= User.find(property.user_id).first_name%></td>
+       
+        <td>
+          <% if property.company_id != nil%>
+            <%= Company.find(property.company_id).name%>
+          <% end %>
+        </td>
+
         <td><%= link_to 'Show', property %></td>
         <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.user_id ) %>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>

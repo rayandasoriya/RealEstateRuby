@@ -1,5 +1,5 @@
 class Property < ApplicationRecord
-  belongs_to :user
+  belongs_to :company
   validates_presence_of :address, :owner, :price, :size, :basement, :floors, :style
   enum basement: [:No, :Yes]
   enum style: [:townhouse, :apartment]
@@ -7,5 +7,4 @@ class Property < ApplicationRecord
   # has_many_attached :images
   mount_uploader :image, ImageUploader
   serialize :image, JSON
-
 end

@@ -6,7 +6,7 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.where("user_id = ?", current_user.id)
+    @properties = Property.all
   end
 
   # GET /properties/1
@@ -16,6 +16,10 @@ class PropertiesController < ApplicationController
 
   # GET /properties/new
   def new
+    if current_user.company_id == nil
+      redirect_to user_edit_path(current_user.id), :flash => { :error => "Cannot List a new Property without a Company" }
+      return
+    end
     @property = Property.new
   end
 
@@ -28,7 +32,7 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     # @property.images.attach(params[:images])
-    @property.user_id = current_user.id
+    @property.company_id = current_user.company_id
     respond_to do |format|
       if @property.save
         format.html { redirect_to @property, notice: 'Property was successfully created.' }
