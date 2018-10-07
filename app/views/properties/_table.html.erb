@@ -19,10 +19,9 @@
         <td><%= property.address %></td>
         <td><%= property.size %></td>
         <td><%= property.floors %></td>
-       
         <td>
-          <% if property.company_id != nil%>
-            <%= Company.find(property.company_id).name%>
+          <% if (property.company_id)%>
+            <%= Company.find(property.company_id).name %>
           <% end %>
         </td>
 

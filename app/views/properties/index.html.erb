@@ -6,6 +6,6 @@
   <h1>Properties</h1>
   <%= render 'table' %>
   <% if current_user.is_admin || current_user.is_realtor %>
-  <%= link_to 'New Property', new_property_path, :class=>'btn-lg btn-success' %>
+    <%= link_to 'New Property', new_property_url, :class=>'btn-lg btn-success' %>
   <% end %>
 </div>
