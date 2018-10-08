@@ -1,6 +1,6 @@
 # RealEstate Application
 
-**Contributors:** 
+## Contributors
 
   - Harsh Aagrawal - hagrawa2
   - Rayan Dasoriya - rdasori
