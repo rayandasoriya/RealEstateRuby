@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Potential Buyers</h1>
+<h1>Potential Buyers/ Wishlist</h1>
 
 <table>
   <thead>
@@ -11,6 +11,7 @@
 
   <tbody>
     <% @potential_buyers.each do |potential_buyer| %>
+      <td><%= Property.find(potential_buyer.property_id).address %></td>
       <tr>
         <td><%= link_to 'Show', potential_buyer %></td>
         <td><%= link_to 'Edit', edit_potential_buyer_path(potential_buyer) %></td>

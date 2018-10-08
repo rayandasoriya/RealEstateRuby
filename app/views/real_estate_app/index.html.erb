@@ -11,6 +11,8 @@
       <%= link_to 'Edit Profile', edit_user_registration_path(current_user.id), :class=>"list-group-item list-group-item-action"%>
       <%= link_to 'View Properties', properties_path, :class => "list-group-item list-group-item-action"%>
       <%= link_to 'My Enquiries', queries_path, :class => "list-group-item list-group-item-action"%>
+      <%= link_to 'View Companies', companies_path, :class=>"list-group-item list-group-item-action"  %>
+      <%= link_to 'My Wishlist', potential_buyers_path, :class=>"list-group-item list-group-item-action"  %>
 
       <%# Admin & Realtor %>
       <% if  current_user.is_realtor || current_user.is_admin %>
