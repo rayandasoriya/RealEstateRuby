@@ -17,3 +17,26 @@ Heroku Deployment URL: https://whispering-coast-30139.herokuapp.com
 | Admin | admin@realestate.com | password | Cannot be deleted |
 | House Hunter | hunter@realestate.com | password | Unless deleted by someone |
 | Realtor | realtor@realestate.com | password | Unless deleted by someone |
+
+
+## Local Deployment
+
+To run the app locally, follow these steps:
+
+Install gems
+```
+bundle install --without production
+```
+Complete Database Migrations
+```
+rails db:migrate
+```
+Add pre-configured users
+```
+rails db:seed
+```
+Run server
+```
+rails server
+```
+Your app will run on http://localhost:3000
