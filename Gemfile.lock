@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 248fb59b6fe3144418efe05288f8ebf7f44260a0
+  revision: c5ce80c27eb546227185560d032113d2cc42e94b
   branch: master
   specs:
     faker (1.9.1)
@@ -75,7 +75,7 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (10.0.2)
-    capybara (3.8.2)
+    capybara (3.9.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -151,9 +151,9 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.3.1)
-    nokogiri (1.8.4)
+    nokogiri (1.8.5)
       mini_portile2 (~> 2.3.0)
-    nokogiri (1.8.4-x86-mingw32)
+    nokogiri (1.8.5-x86-mingw32)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
@@ -224,9 +224,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (3.14.0)
+    selenium-webdriver (3.14.1)
       childprocess (~> 0.5)
-      rubyzip (~> 1.2)
+      rubyzip (~> 1.2, >= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :validate_user, only: [:show, :update, :destroy, :index, :new], :if => lambda{ !Rails.env.test?}
   before_action :authenticate_user!
 
   # GET /
@@ -39,6 +40,20 @@ class UsersController < ApplicationController
   # GET /user/id/edit
   def edit
   end
+
+
+  def validate_user
+    if !user_signed_in?
+      redirect_to root_path
+    end
+
+    if @user != @current_user
+      redirect_to root_path
+    end
+
+  end
+
+
 
   # GET /user/new
   def new

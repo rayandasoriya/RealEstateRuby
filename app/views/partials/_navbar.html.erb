@@ -7,7 +7,35 @@
         <%= link_to "Profile", user_edit_path(current_user.id), :class=>"btn btn-success"%>
       </li>
     </ul>
-    <li>
+    <li style="list-style: none;">
+
+
+
+    <%#
+        if current_user.is_realtor && current_user.is_hunter
+          temp_r = current_user.is_realtor
+          temp_h = current_user.is_hunter
+          current_user.is_realtor = 0
+            if temp_r == 1 %>
+<!--            <p>logged in as a realtor</p>-->
+            <%#= link_to "Change Role", root_path, :class=>"btn btn-outline-primary" %>
+            <%#
+               current_user.is_hunter = 1
+                current_user.is_realtor = 0
+            end
+
+            if temp_h == 1 %>
+           <!-- logged in as a realtor-->
+            <%#= link_to "Change Role", root_path, :class=>"btn btn-outline-primary"
+            current_user.is_hunter = 1
+               current_user.is_realtor = 0
+             end
+          end
+          %>
+
+
+
+
       <%= link_to "Logout", destroy_user_session_path, method: :delete, :class=>"btn btn-outline-danger" %>        
     </li>
   <% end %>
