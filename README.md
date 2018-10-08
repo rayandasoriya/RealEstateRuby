@@ -6,9 +6,11 @@
   - Rayan Dasoriya - rdasori
   - Juhi Madhwani - jhmadhwa
 
+## Deployment 
+
 Heroku Deployment URL: https://whispering-coast-30139.herokuapp.com
 
-
+## Credentials
 
 | Role | Email | Password | Notes |
 | --- | --- | --- | --- |
