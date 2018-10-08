@@ -23,19 +23,19 @@ Heroku Deployment URL: https://whispering-coast-30139.herokuapp.com
 
 To run the app locally, follow these steps:
 
-Install gems
+### Install gems
 ```
-bundle install --without production
+bundle install
 ```
-Complete Database Migrations
+### Complete Database Migrations
 ```
 rails db:migrate
 ```
-Add pre-configured users
+### Add pre-configured users
 ```
 rails db:seed
 ```
-Run server
+### Run server
 ```
 rails server
 ```
