@@ -1,10 +1,18 @@
+<%= render "partials/navbar" %>
 <p id="notice"><%= notice %></p>
 
-<h1>Potential Buyers</h1>
+<div class="container">
+  <h1>Potential Buyers</h1>
 
-<table>
+  <table class="table">
+
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Phone Number</th>
+      <th>Contact Method</th>
+      <th>Email</th>
+      <th>Property Interested</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,14 +20,22 @@
   <tbody>
     <% @potential_buyers.each do |potential_buyer| %>
       <tr>
+        <td><%= User.find(potential_buyer.user_id).first_name %></td>
+        <td><%= User.find(potential_buyer.user_id).phone %></td>
+        <td><%= User.find(potential_buyer.user_id).contact_method %></td>
+        <td><%= User.find(potential_buyer.user_id).email %></td>
+        <td><%= Property.find(potential_buyer.property_id).address %></td>
         <td><%= link_to 'Show', potential_buyer %></td>
-        <td><%= link_to 'Edit', edit_potential_buyer_path(potential_buyer) %></td>
+        <% if current_user.is_admin %>
         <td><%= link_to 'Destroy', potential_buyer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user.is_admin %>
 <%= link_to 'New Potential Buyer', new_potential_buyer_path %>
+  <%end %>
+</div>
