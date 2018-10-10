@@ -29,8 +29,8 @@
           <td><%= company.revenue %></td>
           <td><%= company.synopsis %></td>
 
-          <% if current_user.is_admin || (current_user.is_realtor && current_user.company_id == company.id)%>
-        <td><%= link_to 'Edit', edit_company_path(company) %></td>
+          <% if current_user.is_admin || (current_user.is_realtor )%>
+            <td><%= link_to 'Edit', edit_company_path(company) %></td>
             <%end %>
             <% if current_user.is_admin %>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>

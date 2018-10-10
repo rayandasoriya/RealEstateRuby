@@ -1,11 +1,10 @@
 <%= render "partials/navbar" %>
 <p id="notice"><%= notice %></p>
 
+
 <div class="container">
-  <h1>Potential Buyers</h1>
-
+  <h1>Potential Buyers / Wishlist</h1>
   <table class="table">
-
   <thead>
     <tr>
       <th>Name</th>
@@ -19,6 +18,7 @@
 
   <tbody>
     <% @potential_buyers.each do |potential_buyer| %>
+      <td><%= Property.find(potential_buyer.property_id).address %></td>
       <tr>
         <td><%= User.find(potential_buyer.user_id).first_name %></td>
         <td><%= User.find(potential_buyer.user_id).phone %></td>
