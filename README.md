@@ -1,5 +1,7 @@
 # RealEstate Application
 
+![RealEstate](https://github.ncsu.edu/hagrawa2/RealEstateApp/blob/master/public/nav.gif)
+
 The project is done using the concepts of Ruby on Rails for development for the fulfillment of the requirements of Assignment 2 of CSC 517 Object Oriented Design and Development. 
 
 The purpose of this project is to design a portal for selling the properties. In the project, there are three access models: admin, realtor, and house hunter. House hunter is responsible for listing the details of the properties and replies to the inquiries of the house hunters. House hunter, on the other hand, can view the properties listed and can raise an inquiry. If they are interested in the property, then they can either contact the company directly or mark the company as interested.
@@ -94,8 +96,8 @@ Your app will run on http://localhost:3000
   - Send an inquiry to multiple houses and delete them as well
   
 ### Miscellaneous
-   - When a realtor replies a house hunter’s inquiry, send email to the corresponding house hunter
-   - All users can use their Google account with NCSU email id to log into the system
+   - When a realtor replies a house hunter’s inquiry, send *email* to the corresponding house hunter
+   - All users can use their *Google account* with NCSU email id to log into the system
 
 ## Testing 
 
