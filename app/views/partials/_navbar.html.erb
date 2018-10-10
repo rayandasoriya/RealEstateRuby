@@ -1,6 +1,9 @@
 
 <nav class="navbar navbar-dark bg-dark justify-content-between" style="margin-below: 50px">
-  <%= link_to "RealEstate", root_path, :class => "navbar-brand" %>
+  <div>
+    <img src="/nav.gif" style="width:40px; margin-right:10px">
+    <%= link_to "RealEstate", root_path, :class => "navbar-brand" %>
+  </div>
   <% if(user_signed_in?) %>
     <ul class="navbar-nav mr-auto">
       <li>

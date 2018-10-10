@@ -54,6 +54,12 @@ class CompaniesController < ApplicationController
   # DELETE /companies/1
   # DELETE /companies/1.json
   def destroy
+    users = User.where(company_id: @company.id)
+    users.each do |user|
+      user.update({
+        company_id: 0
+      })
+    end
     @company.destroy
     respond_to do |format|
       format.html { redirect_to companies_url, notice: 'Company was successfully destroyed.' }
