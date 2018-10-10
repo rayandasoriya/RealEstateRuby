@@ -54,7 +54,7 @@ Your app will run on http://localhost:3000
 
 
 ## Features
-###Admin
+### Admin
   - Log in to the system
   - Create realtor and house hunter accounts
   - Create real estate companies
@@ -67,7 +67,7 @@ Your app will run on http://localhost:3000
   - View the list of houses and detailed information
   - View the list of inquiries and detailed information
 
-###Realtor
+### Realtor
   - Can log in/sign up into the system
   - Can edit the profile
   - Choose an existing real estate company or create a new real estate company
@@ -83,7 +83,7 @@ Your app will run on http://localhost:3000
   - Each realtor can have multiple houses
   
 
-###House Hunter
+### House Hunter
   - Can log in/sign up into the system
   - Can edit the profile
   - Search available houses using filters, such as price range, square footage range, location
@@ -93,15 +93,15 @@ Your app will run on http://localhost:3000
   - Add a house to his/her interest list
   - Send an inquiry to multiple houses and delete them as well
   
-###Miscellaneous
+### Miscellaneous
    - When a realtor replies a house hunter’s inquiry, send email to the corresponding house hunter
    - All users can use their Google account with NCSU email id to log into the system
 
-##Testing 
+## Testing 
 
 The testing module has been designed thoroughly for the users model and controller. To view the configuration of the added database module of the user, go to `test/fixtures/users.yml` file. To run the test case, follow the steps:
 
-###For Models
+### For Models
 
 Clone the repository on your local machine.
 
@@ -123,7 +123,7 @@ bin/rails test test/models/user_test.rb
 
 
 
-###For Controllers
+### For Controllers
 
 Clone the repository on your local machine.
 
