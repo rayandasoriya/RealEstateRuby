@@ -67,6 +67,11 @@
       <% if current_user.is_admin || ( current_user.is_hunter ) %>
       <%= link_to 'Interested', potential_buyers_path(property_id: @property.id), :method => 'post', :class=>"btn btn-success" %>
        <% end %>
+
+      <% if current_user.is_realtor && current_user.company_id == @property.company_id %>
+        <%= link_to 'List of Potential Buyers', potential_buyers_path(property_id: @property.id), :method => 'get', :class=>"btn btn-success" %>
+      <% end %>
+
       <%= link_to 'Back', properties_path, :class=>"btn btn-secondary" %>
 
     </div>

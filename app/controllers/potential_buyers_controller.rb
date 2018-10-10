@@ -5,7 +5,13 @@ class PotentialBuyersController < ApplicationController
   # GET /potential_buyers.json
   def index
     @potential_buyers = PotentialBuyer.all
-  end
+    if current_user.is_admin
+      @potential_buyers = PotentialBuyer.all
+    elsif current_user.is_realtor
+      property_id = Property.where(company_id: current_user.company_id).pluck(:id)
+      @potential_buyers = PotentialBuyer.where(property_id: property_id)
+    end
+    end
 
   # GET /potential_buyers/1
   # GET /potential_buyers/1.json
@@ -75,4 +81,5 @@ class PotentialBuyersController < ApplicationController
     params.fetch(:property_id, {})
     params.require(:potential_buyer).permit(:user_id, :property_id)
   end
+
 end
