@@ -1,7 +1,7 @@
 # RealEstate Application
 
 <p align="center">
-<img width="460" height="300" src="https://github.ncsu.edu/hagrawa2/RealEstateApp/blob/master/public/nav.gif">
+<img alt="RealEstate Image" src="https://github.ncsu.edu/hagrawa2/RealEstateApp/blob/master/public/nav.gif">
 </p>
 
 The project is done using the concepts of Ruby on Rails for development for the fulfillment of the requirements of Assignment 2 of CSC 517 Object Oriented Design and Development. 
