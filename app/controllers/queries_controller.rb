@@ -6,9 +6,9 @@ class QueriesController < ApplicationController
   def index
     if current_user.is_admin
       @queries = Query.all
-    elsif current_user.is_hunter
+    elsif session[:role] == 'hunter'
       @queries = Query.where(user_id: current_user.id)
-    elsif current_user.is_realtor
+    elsif session[:role] == 'realtor'
       property_id = Property.where(company_id: current_user.company_id).pluck(:id)
       @queries = Query.where(property_id: property_id)
     end

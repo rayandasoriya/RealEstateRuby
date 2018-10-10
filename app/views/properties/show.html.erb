@@ -5,7 +5,7 @@
 <div class="container" style="margin-top:50px">
   <div class="card">
     <% if @property.image_url %>
-      <%= image_tag @property.image_url, :class=>"card-img-top" %>
+      <%= image_tag @property.image_url, :class=>"card-img-top", :style=>"width:300px" %>
     <% end %>
     <div class="card-body">
       <h5 class="card-title">
@@ -68,7 +68,7 @@
       <%= link_to 'Interested', potential_buyers_path(property_id: @property.id), :method => 'post', :class=>"btn btn-success" %>
        <% end %>
 
-      <% if current_user.is_realtor && current_user.company_id == @property.company_id %>
+      <% if current_user.is_realtor && session[:role] == 'realtor' && current_user.company_id == @property.company_id %>
         <%= link_to 'List of Potential Buyers', potential_buyers_path(property_id: @property.id), :method => 'get', :class=>"btn btn-success" %>
       <% end %>
 

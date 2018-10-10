@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :validate_user, only: [:show, :update, :destroy, :index, :new], :if => lambda{ !Rails.env.test?}
+  before_action :validate_user, only: [:show, :update, :destroy, :index, :new], :if => lambda{ Rails.env.test?}
   before_action :authenticate_user!
 
   # GET /
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   # GET /hunters
   def hunter 
-    if user_signed_in? && current_user.is_hunter
+    if user_signed_in? && !current_user.is_admin
       respond_to do |format|
         format.html { redirect_to root_path }
       end
@@ -31,6 +31,23 @@ class UsersController < ApplicationController
       end
     end
     @users= User.where(is_realtor: 1)
+  end
+
+  def switch
+    if session[:role].present? 
+      if session[:role] == 'hunter'
+        session[:role] = 'realtor'
+      elsif session[:role] == 'realtor'
+        session[:role] = 'hunter'
+      end
+    else
+      if current_user.is_realtor
+        session[:role] = 'realtor'
+      else
+        session[:role] = 'hunter'
+      end
+    end
+    redirect_to root_path
   end
 
   # Not implemented yet.

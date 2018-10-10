@@ -7,7 +7,7 @@
       <th>Size</th>
       <th>Floors</th>
       <th>Contact</th>
-      <th colspan="3"></th>
+      <th colspan="3">Options</th>
     </tr>
   </thead>
 
@@ -26,10 +26,10 @@
         </td>
 
         <td><%= link_to 'Show', property %></td>
-        <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.company_id ) %>
+        <% if current_user.is_admin || ( current_user.is_realtor && session[:role] == 'realtor' && current_user.company_id == property.company_id ) %>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>
           <%end %>
-          <% if current_user.is_admin || ( current_user.is_realtor && current_user.company_id == property.company_id ) %>
+          <% if current_user.is_admin || ( current_user.is_realtor && session[:role] == 'realtor' && current_user.company_id == property.company_id ) %>
         <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
       </tr>

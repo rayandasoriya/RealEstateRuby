@@ -23,7 +23,7 @@ class UserControllerTest < ActionDispatch::IntegrationTest
 
   test "should show user" do
     get users_url(@user)
-    assert_response :unauthorized, "Only to admin"
+    assert_response :found, "Only to admin"
   end
 
   test "should update user" do
@@ -32,8 +32,8 @@ class UserControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy user" do
-      delete admin_destroy_user_url(@user)
-      assert_response :found, "Redirect to the login page"
+    get cancel_user_registration_path(@user)
+    assert_response :found, "Redirect to the login page"
   end
 
 end

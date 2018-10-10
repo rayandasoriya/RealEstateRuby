@@ -1,39 +1,33 @@
+<%= render "partials/navbar" %>
 <p id="notice"><%= notice %></p>
-
 <div class="container" style="margin-top:50px">
   <div class="card" style="width: 64rem;">
-
     <div class="card-body">
-
       <p>
-        <strong>Name:</strong>
+        <strong> Name:</strong>
         <%=  User.find(@potential_buyer.user_id).first_name  %>
         <%=  User.find(@potential_buyer.user_id).last_name %>
       </p>
 
-
-      <p> <strong>Phone Number: </strong>
+      <p> <strong> Phone Number: </strong>
         <%=  User.find(@potential_buyer.user_id).phone %>
       </p>
 
       <p>
-        <strong>Preferred Contact Method:</strong>
+        <strong> Preferred Contact Method:</strong>
         <%=  User.find(@potential_buyer.user_id).contact_method %>
       </p>
 
       <p>
-        <strong>EMail:</strong>
+        <strong> Email:</strong>
         <%=  User.find(@potential_buyer.user_id).email %>
       </p>
 
       <p>
-        <strong>Property Interested:</strong>
+        <strong> Property Interested:</strong>
         <%=  Property.find(@potential_buyer.property_id).address %>
       </p>
-
     </div>
+  <%= link_to 'Back', properties_path, :class=>"btn btn-success" %>
   </div>
-
-<%= link_to 'Edit', edit_potential_buyer_path(@potential_buyer) %> |
-<%= link_to 'Back', properties_path %>
 </div>

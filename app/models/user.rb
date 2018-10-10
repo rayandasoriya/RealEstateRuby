@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:google]
 
-  validates_presence_of :email
+  validates_presence_of :email, :is_hunter, :is_realtor, :first_name
   enum contact_method: [:email, :text, :call]
 
   def self.from_omniauth(auth)
@@ -22,8 +22,10 @@ class User < ApplicationRecord
         user = User.create!(
           provider: auth.provider,
           email: auth.info.email,
+          first_name: auth.info.email.split('@')[0],
           uid: auth.uid,
           is_hunter: 1,
+          is_realtor: 0,
           password: Devise.friendly_token[0,20],
         )
       end
