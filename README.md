@@ -96,8 +96,8 @@ Your app will run on http://localhost:3000
   - Send an inquiry to multiple houses and delete them as well
   
 ### Miscellaneous
-   - When a realtor replies a house hunter’s inquiry, send *email* to the corresponding house hunter
-   - All users can use their *Google account* with NCSU email id to log into the system
+   - When a realtor replies a house hunter’s inquiry, send "email" to the corresponding house hunter
+   - All users can use their "Google account" with NCSU email id to log into the system
 
 ## Testing 
 
