@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:google]
 
-  validates_presence_of :email, :is_hunter, :is_realtor, :first_name
+  validates_presence_of :email, :first_name
   enum contact_method: [:email, :text, :call]
 
   def self.from_omniauth(auth)
