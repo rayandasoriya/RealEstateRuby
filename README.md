@@ -7,10 +7,12 @@
 The project is done using the concepts of Ruby on Rails for development for the fulfillment of the requirements of Assignment 2 of CSC 517 Object Oriented Design and Development. 
 
 The purpose of this project is to design a portal for selling the properties. In the project, there are three access models: admin, realtor, and house hunter. House hunter is responsible for listing the details of the properties and replies to the inquiries of the house hunters. House hunter, on the other hand, can view the properties listed and can raise an inquiry. If they are interested in the property, then they can either contact the company directly or mark the company as interested.
+
+We have also added the email feature with the replies to any inquiry and a Google login feature with only NC State email ids.
  
 ## Deployment 
 
-We have deployed our project on _Heroku_. To view, [click here](https://whispering-coast-30139.herokuapp.com).
+We have deployed our project on **Heroku**. To view, [click here](https://whispering-coast-30139.herokuapp.com).
 
 ## Credentials
 
@@ -97,10 +99,15 @@ Your app will run on http://localhost:3000
   - Add a house to his/her interest list
   - Send an inquiry to multiple houses and delete them as well
   
+### Some Interesting Cases
+   - Deleting a company will delete all the related properties and will remove the company name assigned to any realtor
+   - On changing the company, the realtor can no longer make changes to the old houses.
+   - If a house hunter is deleted, all the existing inquiries will be deleted and also the name from the potential buyer list will be deleted
+  
 ### Miscellaneous
    - When a realtor replies a house hunter’s inquiry, send **email** to the corresponding house hunter
    - All users can use their **Google account** with NCSU email id to log into the system
-
+    
 ## Testing 
 
 The testing module has been designed thoroughly for the users model and controller. To view the configuration of the added database module of the user, go to `test/fixtures/users.yml` file. To run the test case, follow the steps:
