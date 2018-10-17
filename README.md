@@ -30,7 +30,7 @@ To run the app locally, follow these steps:
 - Clone the repository on your local machine.
 
 ```
-git clone https://github.ncsu.edu/hagrawa2/RealEstateApp
+git clone https://github.com/hrshagrwl/RealEstateApp.git
 ```
 
 - Go to the directory of the project where it is cloned using terminal
