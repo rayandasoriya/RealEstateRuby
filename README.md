@@ -1,10 +1,10 @@
 # RealEstate Application
 
 <p align="center">
-<img alt="RealEstate Image" src="https://github.ncsu.edu/hagrawa2/RealEstateApp/blob/master/public/nav.gif">
+<img alt="RealEstate Image" src="https://github.com/hrshagrwl/RealEstateApp/blob/master/public/nav.gif">
 </p>
 
-The project is done using the concepts of Ruby on Rails for development for the fulfillment of the requirements of Assignment 2 of CSC 517 Object Oriented Design and Development. 
+The project is done using the concepts of Ruby on Rails for development. 
 
 The purpose of this project is to design a portal for selling the properties. In the project, there are three access models: admin, realtor, and house hunter. House hunter is responsible for listing the details of the properties and replies to the inquiries of the house hunters. House hunter, on the other hand, can view the properties listed and can raise an inquiry. If they are interested in the property, then they can either contact the company directly or mark the company as interested.
 
@@ -117,7 +117,7 @@ The testing module has been designed thoroughly for the users model and controll
 Clone the repository on your local machine.
 
 ```
-git clone https://github.ncsu.edu/hagrawa2/RealEstateApp
+git clone https://github.com/hrshagrwl/RealEstateApp.git
 ```
 
 Go to the directory of the project where it is cloned using terminal
@@ -139,7 +139,7 @@ bin/rails test test/models/user_test.rb
 Clone the repository on your local machine.
 
 ```
-git clone https://github.ncsu.edu/hagrawa2/RealEstateApp
+git clone https://github.com/hrshagrwl/RealEstateApp.git
 ```
 
 Go to the directory of the project where it is cloned using terminal
@@ -157,6 +157,6 @@ bin/rails test test/controllers/user_controller_test.rb
 
 ## Contributors
 
-  - Harsh Aagrawal - hagrawa2
-  - Rayan Dasoriya - rdasori
-  - Juhi Madhwani - jhmadhwa
+  - [Harsh Aagrawal](https://www.linkedin.com/in/hrshagrwl)
+  - [Rayan Dasoriya](https://www.linkedin.com/in/rayan-dasoriya/)
+  - [Juhi Madhwani](https://www.linkedin.com/in/juhi-madhwani/)
