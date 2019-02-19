@@ -157,6 +157,6 @@ bin/rails test test/controllers/user_controller_test.rb
 
 ## Contributors
 
-  - [Harsh Aagrawal](https://www.linkedin.com/in/hrshagrwl)
+  - [Harsh Agrawal](https://www.linkedin.com/in/hrshagrwl)
   - [Rayan Dasoriya](https://www.linkedin.com/in/rayan-dasoriya/)
   - [Juhi Madhwani](https://www.linkedin.com/in/juhi-madhwani/)
